@@ -4,7 +4,7 @@ import Data.List.Split
 import Debug.Trace
 
 processInput :: [String] -> Int
-processInput lines = let groups = map merge $ splitOnEmptyLine lines in trace (show groups) $ processGroups groups
+processInput lines = let groups = map merge $ splitOnEmptyLine lines in processGroups groups
     where
         merge :: [String] -> [String]
         merge lst = foldl (++) [] $ map words lst
@@ -31,7 +31,7 @@ processInput lines = let groups = map merge $ splitOnEmptyLine lines in trace (s
                 else if n == 7 then
                     isCidMissing group
                 else
-                    trace ("n is " ++ show (n)) 0
+                    0
             where 
                 isCidMissing :: [String] -> Int
                 isCidMissing group = if any isCid group then 0 else 1
